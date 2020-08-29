@@ -32,14 +32,14 @@ class DataPesertaController extends Controller
 
         foreach($noSame as $data){
             //jika nik yang didaftarkan sudah ada di list peserta
-            if(DataPeserta::where('nik', $data)->exists()){
+            if(\App\Berita\DataPeserta::where('nik', $data)->exists()){
 
                 // return redirect('/input-peserta')->with('FAIL', $data);
                 return redirect('adminBerita/input-peserta')->with('FAIL', "Ada NIK yang sudah terdaftar. Mohon dipastikan tidak ada nik yang sudah terdaftar pada Daftar Kelas(Peserta)");
 
             }
             //jika nik yang ingin didaftarkan merupakan anggota umat
-            else if(Umat::where('umat_ktp',$data)->exists()){
+            else if(\App\Berita\Umat::where('umat_ktp',$data)->exists()){
                 $niks[] = [
                     'nik' => $data
                 ];

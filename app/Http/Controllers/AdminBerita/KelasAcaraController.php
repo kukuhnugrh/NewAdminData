@@ -20,7 +20,7 @@ class KelasAcaraController extends Controller
 	]);
 
 	//Create New Event
-	$subclass = new KelasAcara;
+	$subclass = new \App\Berita\KelasAcara;
 	$subclass->kelas_nama = $request->input('kelas_nama');
 	$subclass->acara_id = $request->input('namaAcara');
 	//Save Events

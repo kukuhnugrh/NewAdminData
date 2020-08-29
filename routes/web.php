@@ -21,6 +21,7 @@ Route::get('/dataUmat/PDF/{id}', 'AdminData\DaftarUmatController@cetak_pdf');
 Route::get('/umatPribadi', 'AdminData\UmatPribadiController@index');
 Route::get('/umatPribadi/livesearch/{keyword}', 'AdminData\UmatPribadiController@liveSearch');
 Route::get('/detailUmat/{umat_nama}', 'AdminData\UmatPribadiController@detail');
+Route::get('/detailUmat/{umat_nama}/Edit', 'AdminData\UmatPribadiController@editDetailUmat');
 
 //Berita
 

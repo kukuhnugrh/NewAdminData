@@ -49,8 +49,8 @@
           <ul class="sidebar-menu">
               <li class="menu-header">Menu</li>
               <li class="active"><a class="nav-link" href="/" style="color: #B80F0A"><i class="far fa-square"></i> <span>Daftar Data Umat</span></a></li>
-              <li class="active"><a class="nav-link" href="umatPribadi" style="color: #B80F0A"><i class="far fa-square"></i> <span>Data Umat Pribadi</span></a></li>
-              <li class="active"><a class="nav-link" href="daftar-acara" target="_blank" style="color: #B80F0A"><i class="far fa-square"></i> <span>Daftar Berita</span></a></li>
+              <li class="active"><a class="nav-link" href="/umatPribadi" style="color: #B80F0A"><i class="far fa-square"></i> <span>Data Umat Pribadi</span></a></li>
+              <li class="active"><a class="nav-link" href="/daftar-acara" target="_blank" style="color: #B80F0A"><i class="far fa-square"></i> <span>Daftar Berita</span></a></li>
             </ul>
         </aside>
       </div>
@@ -84,11 +84,14 @@
   <script src="../assets/js/stisla.js"></script>
 
   <!-- JS Libraies -->
+  <script src="../node_modules/prismjs/prism.js"></script>
 
   <!-- Template JS File -->
   <script src="../assets/js/scripts.js"></script>
   <script src="../assets/js/custom.js"></script>
 
   <!-- Page Specific JS File -->
+  <script src="../assets/js/page/bootstrap-modal.js"></script>
+
 </body>
 </html>

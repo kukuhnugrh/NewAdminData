@@ -1,12 +1,19 @@
 @extends('layouts/master')
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
+<script src="../assets/js/page/bootstrap-modal.js"></script>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
 
 @section('content')
 <section class="section">
     <div class="section-header">
-        <h1 class="mt-2">Detail Umat</h1>
+        <div class="col-6">
+            <h1 class="mt-2">Detail Umat</h1>
+        </div>
+        <div class="col-6">
+            <button type="button" class="btn btn-primary trigger--fire-modal float-right" data-toggle="modal" data-target="#exampleModalCenter">Edit</button>
+            
+        </div>
     </div>
     <div class="section-body">
         <div class="top-body">
@@ -213,7 +220,71 @@
         </div>
     </div>
     <div class="mt-2">
-        <a href="'//" name="Edit" id="Edit"><button type="button" class="btn btn-primary">Edit</button></a>
+        
     </div>
-  </section>
+</section>
 @endsection
+<form>
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-md" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Edit Data Umat</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <h5>Informasi Pribadi</h5>
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Nama Lengkap</label>
+                    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputPassword1">NIK</label>
+                    <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputPassword1">Nomor KK</label>
+                    <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputPassword1">Tempat Tanggal Lahir</label>
+                    <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputPassword1">Status Menikah</label>
+                    <select class="form-control">
+                        @foreach( $umat_nama as $dup )
+                            <option value="{{ $dup->status_nikah_nama }}">{{ $dup->status_nikah_nama }}</option>
+                        @endforeach
+                        @foreach( $semua_umat as $sul )
+                            <option value="{{ $sul->status_nikah_nama }}">{{ $sul->status_nikah_nama }}</option>
+                        @endforeach
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputPassword1">Hubungan Keluarga</label>
+                    <select class="form-control">
+                        @foreach( $umat_nama as $dup )
+                            <option value="{{ $dup->hubungan_keluarga_nama }}">{{ $dup->hubungan_keluarga_nama }}</option>
+                        @endforeach
+                        @foreach( $semua_umat as $sul )
+                            <option value="{{ $sul->hubungan_keluarga_nama }}">{{ $sul->hubungan_keluarga_nama }}</option>
+                        @endforeach
+                    </select>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary">Save changes</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+</form>
+<script>
+    $('#myModal').on('shown.bs.modal', function () {
+        $('#myInput').trigger('focus')
+    })
+</script>
